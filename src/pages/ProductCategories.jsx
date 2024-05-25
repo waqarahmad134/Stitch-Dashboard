@@ -30,7 +30,7 @@ export default function ProductCategories() {
   const [loader, setLoader] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const [addProdCat, setAddProdCat] = useState({
-    title: '',
+    title: 'waqar',
   });
   const [updateProdCat, setUpdateProdCat] = useState({
     title: '',
@@ -66,6 +66,7 @@ export default function ProductCategories() {
       let res = await PostAPI('admin/addProductCategories', {
         title: addProdCat.title,
       });
+      console.log(res?.data)
       if (res?.data?.status === '1') {
         reFetch();
         setLoader(false);

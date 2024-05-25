@@ -38,7 +38,10 @@ export default function Products() {
     image: '',
     images: [],
   });
-  console.log("🚀 ~ Products ~ addProduct:", addProduct)
+  const catOption = allUsers?.data?.data?.data?.filter(
+    (data) => data.id === parseInt(addProduct.UserId),
+  )?.[0]?.userType;
+
   const [addModal, setAddModal] = useState(false);
   const closeAddModal = () => {
     setAddModal(false);
@@ -89,9 +92,9 @@ export default function Products() {
       UserId,
       isFeatured,
       image,
-      images
+      images,
     } = addProduct;
-  
+
     if (title === '') {
       info_toaster('Please Enter Title');
     } else if (price === '') {
@@ -121,7 +124,7 @@ export default function Products() {
       images.forEach((file) => {
         formData.append('images', file);
       });
-  
+
       try {
         let res = await PostAPI('admin/addProduct', formData);
         if (res?.data?.status === '1') {
@@ -150,7 +153,7 @@ export default function Products() {
       }
     }
   };
-  
+
   return (
     <DefaultLayout>
       <Breadcrumb pageName="All Products" />
@@ -174,7 +177,7 @@ export default function Products() {
               <ModalBody>
                 <div className="space-y-5">
                   <div className="flex gap-x-4">
-                    <div className="space-y-1">
+                    <div className="space-y-1 w-full">
                       <label className={labelStyle} htmlFor="title">
                         Product Name
                       </label>
@@ -188,14 +191,14 @@ export default function Products() {
                         className={inputStyle}
                       />
                     </div>
-                    <div className="space-y-1">
+                    <div className="space-y-1 w-full">
                       <label className={labelStyle} htmlFor="price">
                         Product Price
                       </label>
                       <input
                         value={addProduct?.price}
                         onChange={onChange}
-                        type="text"
+                        type="number"
                         name="price"
                         id="price"
                         placeholder="Product Price"
@@ -204,7 +207,7 @@ export default function Products() {
                     </div>
                   </div>
                   <div className="flex gap-x-4">
-                    <div className="space-y-1">
+                    <div className="space-y-1 w-full">
                       <label className={labelStyle} htmlFor="description">
                         Product Description
                       </label>
@@ -218,7 +221,7 @@ export default function Products() {
                         className={inputStyle}
                       />
                     </div>
-                    <div className="space-y-1">
+                    <div className="space-y-1 w-full">
                       <label className={labelStyle} htmlFor="isFeatured">
                         Featured Product
                       </label>
@@ -233,7 +236,7 @@ export default function Products() {
                     </div>
                   </div>
                   <div className="flex gap-x-4">
-                    <div className="space-y-1">
+                    <div className="space-y-1 w-full">
                       <label className={labelStyle} htmlFor="description">
                         Select Tailor / Shop
                       </label>
@@ -250,7 +253,8 @@ export default function Products() {
                         ))}
                       </select>
                     </div>
-                    <div className="space-y-1">
+                    {catOption === "shop" ? "" : (
+                    <div className="space-y-1 w-full">
                       <label className={labelStyle} htmlFor="isFeatured">
                         Select Product Category
                       </label>
@@ -269,9 +273,10 @@ export default function Products() {
                         )}
                       </select>
                     </div>
+                    )}
                   </div>
 
-                  <div className="space-y-1">
+                  <div className="space-y-1 w-full">
                     <label className={labelStyle} htmlFor="image">
                       Image
                     </label>
@@ -284,7 +289,7 @@ export default function Products() {
                       className={inputStyle}
                     />
                   </div>
-                  <div className="space-y-1">
+                  <div className="space-y-1 w-full">
                     <label className={labelStyle} htmlFor="images">
                       Images
                     </label>

@@ -6,7 +6,7 @@ export const PostAPI = async (url, postData) => {
   let config = {
     headers: {
       accessToken: secureLocalStorage.getItem("accessToken"),
-      'Content-Type': 'multipart/form-data'
+      // 'Content-Type': 'multipart/form-data'
     },
   };
   try {
