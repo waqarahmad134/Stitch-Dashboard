@@ -21,7 +21,7 @@ export default function Shops() {
   }
   return (
     <DefaultLayout>
-      <Breadcrumb pageName="All Products" />
+      <Breadcrumb pageName="All Shop's" />
       <div className="flex flex-col gap-10">
         <TableUsers onClick={handleClick} data={data?.data?.data} />
       </div>

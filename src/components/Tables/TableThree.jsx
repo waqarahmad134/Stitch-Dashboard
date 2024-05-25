@@ -11,9 +11,9 @@ export default function TableThree(props) {
                 <th className="min-w-[220px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11">
                   Title
                 </th>
-                <th className="min-w-[150px] py-4 px-4 font-medium text-black dark:text-white">
+                {/* <th className="min-w-[150px] py-4 px-4 font-medium text-black dark:text-white">
                   Type
-                </th>
+                </th> */}
                 <th className="min-w-[150px] py-4 px-4 font-medium text-black dark:text-white">
                   Price
                 </th>
@@ -36,11 +36,11 @@ export default function TableThree(props) {
                       {packageItem.title}
                     </h5>
                   </td>
-                  <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
+                  {/* <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                     <p className="text-black dark:text-white">
                       {packageItem.type}
                     </p>
-                  </td>
+                  </td> */}
                   <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                     <p className="text-black dark:text-white">
                       {packageItem.price}
@@ -73,7 +73,7 @@ export default function TableThree(props) {
                   </td>
                   <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                     <div className="flex items-center justify-center space-x-3.5">
-                      <button className="hover:text-primary">
+                      {/* <button className="hover:text-primary">
                         <svg
                           className="fill-current"
                           width="18"
@@ -99,7 +99,7 @@ export default function TableThree(props) {
                             fill=""
                           />
                         </svg>
-                      </button>
+                      </button> */}
                       <button
                         onClick={() => props.onClick(packageItem?.id)}
                         className={`inline-flex rounded-full bg-opacity-10 py-1 px-3 text-sm font-medium ${

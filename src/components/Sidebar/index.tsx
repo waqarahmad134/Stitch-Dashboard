@@ -162,6 +162,24 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 >
                   Product Categories
                 </NavLink>
+                <NavLink
+                  to="/shop-categories"
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                    pathname.includes('shop-categories') &&
+                    'bg-graydark dark:bg-meta-4'
+                  }`}
+                >
+                  Shop Categories
+                </NavLink>
+                <NavLink
+                  to="/tailor-categories"
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                    pathname.includes('tailor-categories') &&
+                    'bg-graydark dark:bg-meta-4'
+                  }`}
+                >
+                  Tailor Categories
+                </NavLink>
               </li>
             </ul>
           </div>

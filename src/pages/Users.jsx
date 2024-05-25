@@ -31,7 +31,7 @@ export default function Users() {
   }
   return (
     <DefaultLayout>
-      <Breadcrumb pageName="All Products" />
+      <Breadcrumb pageName="All Users" />
       <TableUsers
         deleteUser={deleteUser}
         onClick={handleClick}

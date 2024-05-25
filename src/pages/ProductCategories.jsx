@@ -36,7 +36,6 @@ export default function ProductCategories() {
     title: '',
     id: '',
   });
-  console.log('🚀 ~ ProductCategories ~ updateProdCat:', updateProdCat?.title);
   const [addModal, setAddModal] = useState(false);
   const closeAddModal = () => {
     setAddModal(false);
@@ -91,7 +90,6 @@ export default function ProductCategories() {
         id: updateProdCat.id,
         title: updateProdCat.title,
       });
-      console.log(res?.data);
       if (res?.data?.status === '1') {
         reFetch();
         setLoader(false);
@@ -111,12 +109,10 @@ export default function ProductCategories() {
   const deletePC = async (id) => {
     setDisabled(true);
     let res = await DeleteAPI(`admin/deletePC/${id}`);
-    console.log(res?.data);
     if (res?.data?.status === '1') {
       reFetch();
       success_toaster(res?.data?.message);
       setDisabled(false);
-      alert('as');
     } else {
       error_toaster(res?.data?.message);
       setDisabled(false);
@@ -137,7 +133,7 @@ export default function ProductCategories() {
   return (
     <div>
       <DefaultLayout>
-        <Breadcrumb pageName="All Products" />
+        <Breadcrumb pageName="All Product Categories" />
 
         <button
           onClick={() => setAddModal(true)}

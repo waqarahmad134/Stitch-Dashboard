@@ -21,7 +21,7 @@ export default function Tailors() {
     }
     return (
       <DefaultLayout>
-        <Breadcrumb pageName="All Products" />
+        <Breadcrumb pageName="All Tailor's" />
         <div className="flex flex-col gap-10">
           <TableUsers onClick={handleClick} data={data?.data?.data} />
         </div>
