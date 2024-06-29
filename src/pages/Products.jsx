@@ -31,6 +31,8 @@ export default function Products() {
   const [addProduct, setAddProduct] = useState({
     title: '',
     price: '',
+    type: '',
+    color: '',
     description: '',
     ProductCategoryId: '',
     UserId: '',
@@ -88,6 +90,8 @@ export default function Products() {
       title,
       price,
       description,
+      type,
+      color,
       ProductCategoryId,
       UserId,
       isFeatured,
@@ -116,6 +120,8 @@ export default function Products() {
       const formData = new FormData();
       formData.append('title', title);
       formData.append('price', price);
+      formData.append('color', color);
+      formData.append('type', type);
       formData.append('description', description);
       formData.append('ProductCategoryId', ProductCategoryId);
       formData.append('UserId', UserId);
@@ -204,6 +210,36 @@ export default function Products() {
                         placeholder="Product Price"
                         className={inputStyle}
                       />
+                    </div>    
+                  </div>
+                  <div className='flex gap-4'>
+                  <div className="space-y-1 w-full">
+                      <label className={labelStyle} htmlFor="type">
+                        Product Type
+                      </label>
+                      <input
+                        value={addProduct?.type}
+                        onChange={onChange}
+                        type="text"
+                        name="type"
+                        id="type"
+                        placeholder="Product Type"
+                        className={inputStyle}
+                      />
+                    </div>
+                    <div className="space-y-1 w-full">
+                      <label className={labelStyle} htmlFor="color">
+                        Product Color
+                      </label>
+                      <input
+                        value={addProduct?.color}
+                        onChange={onChange}
+                        type="text"
+                        name="color"
+                        id="color"
+                        placeholder="Product Color"
+                        className={inputStyle}
+                      />
                     </div>
                   </div>
                   <div className="flex gap-x-4">
@@ -253,7 +289,7 @@ export default function Products() {
                         ))}
                       </select>
                     </div>
-                    {catOption === "shop" ? "" : (
+                    {catOption === "tailor" ? "" : (
                     <div className="space-y-1 w-full">
                       <label className={labelStyle} htmlFor="isFeatured">
                         Select Product Category
